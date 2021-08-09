@@ -1,20 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
- <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+* {
+  box-sizing: border-box;
+}
+
+/* Create a column layout with Flexbox */
+.row {
+  display: flex;
+  width:200px;
+}
+
+/* Left column (menu) */
+.left {
+  flex: 35%;
+  padding: 15px 0;
+}
+
+.left h2 {
+  padding-left: 8px;
+}
+
+/* Right column (page content) */
+.right {
+  flex: 65%;
+  padding: 15px;
+}
+
+/* Style the search box */
+#mySearch {
+  width: 100%;
+  font-size: 18px;
+  padding: 11px;
+  border: 1px solid #ddd;
+}
+
+/* Style the navigation menu inside the left column */
+#myMenu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myMenu li a {
+  padding: 12px;
+  text-decoration: none;
+  color: black;
+  display: block
+}
+
+#myMenu li a:hover {
+  background-color: #eee;
+}
+.btn{
+background-color:green;
+display:flex;
+justify-content:flex-end;
+}
+</style>
 </head>
-<body background="C:\Users\IndumathiK\OneDrive - revature.com\Pictures\Saved Pictures\revature.png" height="100" width="150">
-<center>
-<h1>Welcome To Revature</h1>
-</center>
+<body>
+<div>
+    <center>
+   <marquee><h1>Welcome To Revature</h1></marquee>
+   </center>
+  </div>
+
+<div class="row">
+  <div class="left" style="background-color:#bbb;">
+    <h2>Menu</h2>
+    <ul id="myMenu">
+      <li><a href="#">Reimbursement Request</a></li>
+      <li><a href="#">View Pending Request</a></li>
+      <li><a href="#">View Resolved Request</a></li>
+      <li><a href="#">Update User Information</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </div>
+  </div>
 <div>
 <button type="button" class="btn">Signup</button>
 <button type="button" class="btn">Login</button>

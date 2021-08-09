@@ -16,6 +16,7 @@
 		<property name="hbm2ddl.auto">update</property>
 		<property name="show_sql">true</property>
 		<mapping class="com.revature.entity.EmployeeEntity" />
+		<mapping class="com.revature.entity.EmployeeLoginEntity" />
 		
 		
 		
