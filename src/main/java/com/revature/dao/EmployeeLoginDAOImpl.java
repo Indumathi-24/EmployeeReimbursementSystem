@@ -1,7 +1,13 @@
 package com.revature.dao;
 
-import org.hibernate.Session;
+import java.util.ArrayList;
 
+import java.util.List;
+
+
+
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import com.revature.entity.EmployeeLoginEntity;
 import com.revature.mapper.EmployeeLoginMapper;
@@ -15,7 +21,7 @@ public class EmployeeLoginDAOImpl implements EmployeeLoginDAO {
 			Session session=HibernateUtil.getSessionFactory().openSession();
 			session.beginTransaction();  
 			
-			EmployeeLoginEntity ee=EmployeeLoginMapper.mapEmployee(eLogin);
+			EmployeeLoginEntity ee=EmployeeLoginMapper.mapEmployeeLogin(eLogin);
 			session.save(ee);
 			System.out.println("employee inserted...");
 			session.getTransaction().commit();
@@ -25,5 +31,21 @@ public class EmployeeLoginDAOImpl implements EmployeeLoginDAO {
 			
 			e1.printStackTrace();
 		}
+}
+	
+public List<EmployeeLoginEntity> validateEmployeeLogin() {
+	  List<EmployeeLoginEntity> eList=new ArrayList<EmployeeLoginEntity>();
+      try {
+			System.out.println("In dao");
+			Session session=HibernateUtil.getSessionFactory().openSession();
+			Query q=session.createQuery("from EmployeeLoginEntity e");
+			eList=q.list();
+			}
+       catch (Exception e1) {
+	
+	      e1.printStackTrace();
+         }
+ 
+      return eList;
 }
 }

@@ -2,6 +2,7 @@ package com.revature.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -9,6 +10,8 @@ import javax.persistence.Table;
 @Table(name="Employee")
 public class EmployeeEntity {
 	
+	@OneToOne(mappedBy="userName")
+	private EmployeeLoginEntity user;
 	private String employeeName;
 	private String dob;
 	private String address;
@@ -18,6 +21,12 @@ public class EmployeeEntity {
 	private Integer age;
 	private String gender;
 	private String type;
+	public EmployeeLoginEntity getUser() {
+		return user;
+	}
+	public void setUser(EmployeeLoginEntity user) {
+		this.user = user;
+	}
 	public String getEmployeeName() {
 		return employeeName;
 	}

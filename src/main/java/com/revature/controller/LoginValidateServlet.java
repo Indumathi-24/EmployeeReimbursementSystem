@@ -1,7 +1,6 @@
 package com.revature.controller;
 
 import java.io.IOException;
-
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,36 +14,38 @@ import com.revature.entity.EmployeeLoginEntity;
 import com.revature.model.EmployeeLogin;
 import com.revature.service.EmployeeLoginService;
 import com.revature.service.EmployeeLoginServiceImpl;
-import com.revature.service.EmployeeRegService;
-import com.revature.service.EmployeeRegServiceImpl;
 
-public class EmployeeLoginServlet extends HttpServlet {
+
+public class LoginValidateServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		String email=request.getParameter("email");
 		String password=request.getParameter("password");
-		String cPassword=request.getParameter("confirmPassword");
 		
-		EmployeeLogin eLogin = new EmployeeLogin();
-		eLogin.setEmail(email);
-		eLogin.setPassword(password);
-		eLogin.setConfirmPswrd(cPassword);
+		
 		
 	
 		EmployeeLoginService employeeLoginService =new EmployeeLoginServiceImpl();
 		
-		employeeLoginService.addEmployeeLogin(eLogin);
+		List<EmployeeLoginEntity> eList=new ArrayList<EmployeeLoginEntity>();
+		eList=employeeLoginService.validateEmployeeLogin();
+		System.out.println("Enter in List");
+		for(EmployeeLoginEntity e:eList) {
+			System.out.println(e.getUserName()+ " "+e.getPassword());
+		}
+		//for(EmployeeLoginEntity e:eList) {
+			//if(e.getUserName().equals(email) && e.getPassword().equals(password)) {
+				
+				//response.sendRedirect("http://localhost:8080/EmployeeReimbursementSystem/Employee.html");
+			//}
+		//}
 		
-		out.println("<html>");
-		out.println("<body>");
-		out.println("<script> alert('Login Success')</script>");
-		out.println("</body>");
-		out.println("<html>");
 		
 		
 		
 	}
+	}
 
-}
+

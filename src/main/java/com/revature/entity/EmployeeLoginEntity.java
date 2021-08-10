@@ -1,24 +1,33 @@
 package com.revature.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="EmployeeLogin")
 public class EmployeeLoginEntity {
+	@OneToOne
+	@JoinColumn(name="email",nullable=false)
+	private EmployeeEntity userName;
 	@Id
-	private String email;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Integer id;
 	private String password;
 	private String confirmPswrd;
+	
+	public EmployeeEntity getUserName() {
+		return userName;
+	}
+	public void setUserName(EmployeeEntity userName) {
+		this.userName = userName;
+	}
 	public EmployeeLoginEntity() {
 		
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
 	}
 	public String getPassword() {
 		return password;
@@ -32,9 +41,8 @@ public class EmployeeLoginEntity {
 	public void setConfirmPswrd(String confirmPswrd) {
 		this.confirmPswrd = confirmPswrd;
 	}
-	public EmployeeLoginEntity(String email, String password, String confirmPswrd) {
+	public EmployeeLoginEntity(String password, String confirmPswrd) {
 		super();
-		this.email = email;
 		this.password = password;
 		this.confirmPswrd = confirmPswrd;
 	}

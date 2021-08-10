@@ -6,13 +6,15 @@ import com.revature.model.Employee;
 import com.revature.model.EmployeeLogin;
 
 public class EmployeeLoginMapper {
-	public static EmployeeLoginEntity mapEmployee(EmployeeLogin e) {
-		EmployeeLoginEntity entity=new EmployeeLoginEntity();
+	public static EmployeeLoginEntity mapEmployeeLogin(EmployeeLogin e) {
+		EmployeeLoginEntity loginEntity=new EmployeeLoginEntity();
+		EmployeeEntity entity=new EmployeeEntity();
 		entity.setEmail(e.getEmail());
-		entity.setPassword(e.getPassword());
-		entity.setConfirmPswrd(e.getConfirmPswrd());;
+		loginEntity.setUserName(entity);
+		loginEntity.setPassword(e.getPassword());
+		loginEntity.setConfirmPswrd(e.getConfirmPswrd());;
 		
-		return entity;
+		return loginEntity;
 		
 	}
 }
