@@ -14,6 +14,7 @@ public class EmployeeReimbursementEntity {
     private Date date;
     private String type;
     private Integer amount;
+    private String status;
 	public Integer getRequestId() {
 		return requestId;
 	}
@@ -38,5 +39,12 @@ public class EmployeeReimbursementEntity {
 	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
     
 }

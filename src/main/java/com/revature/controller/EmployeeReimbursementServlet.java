@@ -2,6 +2,7 @@ package com.revature.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -10,10 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.revature.model.Employee;
 import com.revature.model.EmployeeReimbursement;
-import com.revature.service.EmployeeRegService;
-import com.revature.service.EmployeeRegServiceImpl;
+
 import com.revature.service.EmployeeReimbursementService;
 import com.revature.service.EmployeeReimbursementServiceImpl;
 
@@ -32,7 +31,12 @@ public class EmployeeReimbursementServlet extends HttpServlet {
 		
 		int reimburseAmount=Integer.parseInt(amount);
 		int id=Integer.parseInt(requestId);
-		Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(date);
+		try {
+			Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(date);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		EmployeeReimbursement reimbursement=new EmployeeReimbursement();
 		reimbursement.getRequestId();
 		reimbursement.getDate();
@@ -41,7 +45,6 @@ public class EmployeeReimbursementServlet extends HttpServlet {
 		reimbursement.getStatus();
 		 
 		EmployeeReimbursementService employeeService =new EmployeeReimbursementServiceImpl();
-		
 		employeeService.addEmployeeRequest(reimbursement);
 		
 		out.println("<html>");
