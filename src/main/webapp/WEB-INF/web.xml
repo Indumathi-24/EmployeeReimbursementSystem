@@ -28,6 +28,12 @@
   	<description></description>
   	<servlet-class>com.revature.controller.LoginValidateServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>EmployeeReimbursementServlet</servlet-name>
+  	<display-name>EmployeeReimbursementServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.controller.EmployeeReimbursementServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>EmployeeRegistration</servlet-name>
   	<url-pattern>/EmployeeRegistration</url-pattern>
@@ -43,5 +49,9 @@
   <servlet-mapping>
   	<servlet-name>LoginValidateServlet</servlet-name>
   	<url-pattern>/LoginValidateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EmployeeReimbursementServlet</servlet-name>
+  	<url-pattern>/EmployeeReimbursementServlet</url-pattern>
   </servlet-mapping>
 </web-app>

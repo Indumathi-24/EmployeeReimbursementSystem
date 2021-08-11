@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+    
+<div class="container">
+  <h2> Reimbursement Form </h2>
+  
+ 
+<form action="http://localhost:8080/EmployeeReimbursementSystem/EmployeeRegistrationServlet" method="get">
+            
+  <table  class="table table-hover">
+    <tbody>
+      <tr>
+        <td>Request ID</td>
+        <td><input  type="number" name="requestId" required></td>
+      
+      </tr>
+       <tr>
+        <td>Date</td>
+        <td><input type="date" name="date" required></td>
+      
+      </tr>
+       <tr>
+        <td>Amount</td>
+        <td><input  type="number" name="amount" required></td>
+      
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td><input  type="text" name="status" required></td>
+      
+      </tr>
+      <tr>
+        <td>Type</td>
+        <td>
+        <select name="type">
+        <option>Food</option>
+        <option>Travel</option>
+        </select>
+      </td>
+      </tr>
+      <tr>
+       <td><button type="submit" class="btn btn-success">Submit</button></td>
+     
+       <td><button type="submit" class="btn btn-danger">Cancel</td>
+      
+      </tr>
+    </tbody>
+  </table>
+  </form>
+</div>
+
+</body>
+</html>

@@ -1,7 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
 <style>
 .dropbtn {
   background-color: #04AA6D;
@@ -51,7 +54,6 @@ a.buy:hover
 </style>
 </head>
 <body>
-
 <a class="buy" href="#">Logout</a>&nbsp
  <a class="buy" href="#" >View Profile</a>
 
@@ -64,6 +66,5 @@ a.buy:hover
     <a href="#">Update Profile</a>
   </div>
 </div>
-
 </body>
 </html>
