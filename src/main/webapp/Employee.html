@@ -3,6 +3,12 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+body{
+background-image:url('background.jpg');
+background-repeat:no-repeat;
+background-size:cover;
+  
+}
 .dropbtn {
   background-color: #04AA6D;
   color: white;
@@ -52,18 +58,24 @@ a.buy:hover
 </head>
 <body>
 
-<a class="buy" href="#">Logout</a>&nbsp
- <a class="buy" href="#" >View Profile</a>
-
+<center>
+<h1>Welcome</h1>
+</center>
+<a class="buy" href="http://localhost:8080/EmployeeReimbursementSystem/LoginValidation.html">Logout</a>
 <div class="dropdown">
   <button class="dropbtn">Menu</button>
   <div class="dropdown-content">
-    <a href="#">New Request</a>
-    <a href="#">Pending Request</a>
-    <a href="#">Resolved Request</a>
-    <a href="#">Update Profile</a>
+    <a href="http://localhost:8080/EmployeeReimbursementSystem/ReimbursementRequest.html">New Request</a>
+    <a href="http://localhost:8080/EmployeeReimbursementSystem/PendingRequestServlet">Pending Request</a>
+    <a href="http://localhost:8080/EmployeeReimbursementSystem/ApprovedRequestServlet">Approved Request</a>
+    <a href="http://localhost:8080/EmployeeReimbursementSystem/DeniedRequestServlet">Denied Request</a>
+    <a href="http://localhost:8080/EmployeeReimbursementSystem/ViewProfileServlet" >View Profile</a>
+    <a href="http://localhost:8080/EmployeeReimbursementSystem/UpdateProfileServlet">Update Profile</a>
   </div>
 </div>
-
+<br>
+<center>
+<!--  <img src="start.jpg">-->
+</center>
 </body>
 </html>

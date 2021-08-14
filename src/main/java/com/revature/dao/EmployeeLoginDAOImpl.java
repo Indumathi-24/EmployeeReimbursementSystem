@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 import java.util.List;
 
-
-
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
+import com.revature.entity.EmployeeEntity;
 import com.revature.entity.EmployeeLoginEntity;
 import com.revature.mapper.EmployeeLoginMapper;
 import com.revature.model.EmployeeLogin;
@@ -48,4 +48,48 @@ public List<EmployeeLoginEntity> validateEmployeeLogin() {
  
       return eList;
 }
+
+public void updateForgotPassword(String email, String passWord) {
+	List<Integer> idList = new ArrayList<>();
+	List<String> passWordList = new ArrayList<String>();
+	Session session = HibernateUtil.getSessionFactory().openSession();
+	try {
+		Query query = session.createQuery("select l.id from  EmployeeLoginEntity l where l.email=:userName");
+		query.setParameter("userName", email);
+		idList = query.list();
+		int loginId = idList.get(0);
+		Query passWordQuery = session.createQuery("select l.passWord from EmployeeLoginEntity l where l.email=:userName");
+		passWordQuery.setParameter("userName", email);
+		passWordList = passWordQuery.list();
+		String previousPassWord = passWordList.get(0);
+		if (passWord.equals(previousPassWord)) { 
+			session.beginTransaction();
+			Query newPasswordQuery = session.createQuery("UPDATE EmployeeLoginEntity set passWord=:pwd" + " where id=:userId");
+			newPasswordQuery.setParameter("pwd", passWord);
+			newPasswordQuery.setParameter("userId", loginId);
+			int count =newPasswordQuery.executeUpdate();
+			System.out.println(count + " " + "Rows updated");
+			session.close();
+		}
+	} catch (HibernateException e) {
+		e.printStackTrace();
+	} 
+	}
+	public String getEmployeeType(String email) {
+		List<EmployeeEntity> entityList=new ArrayList<>();
+		String empType=null;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			Query query=session.createQuery("from EmployeeEntity where email=:userId");
+			query.setParameter("userId",email);
+			entityList=query.list();
+			for(EmployeeEntity entity:entityList) {
+				empType=entity.getType();
+				session.close();
+			}
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			}
+		return empType;
+		}
 }

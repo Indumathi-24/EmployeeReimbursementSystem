@@ -27,6 +27,7 @@ public class EmployeeRegistrationServlet extends HttpServlet {
 			String age=request.getParameter("age");
 			String gender=request.getParameter("gender");
 			String mobileNo=request.getParameter("mobileNo");
+			System.out.print(name+" "+address+" "+dob+" "+email+" "+type+" "+age+" "+gender+" "+mobileNo);
 			long mNo=Long.parseLong(mobileNo);
 			int eAge=Integer.parseInt(age);
 			Employee employee=new Employee();
@@ -38,21 +39,12 @@ public class EmployeeRegistrationServlet extends HttpServlet {
 			employee.setGender(gender);
 			employee.setAge(eAge);
 			employee.setMobileNo(mNo);
-			 
+			System.out.println(employee);
 			EmployeeRegService employeeService =new EmployeeRegServiceImpl();
-			
 			employeeService.addEmployee(employee);
+			System.out.println("Registration Success");
+			response.sendRedirect("http://localhost:8080/EmployeeReimbursementSystem/Login.html");
 			
-			out.println("<html>");
-			out.println("<body>");
-			out.println("<script> alert('Registration Success')</script>");
-			out.println("</body>");
-			out.println("<html>");
-			
-			
-			//RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
-			
-			//rd.forward(request, response);
 			
 	}
 

@@ -17,6 +17,7 @@
 		<property name="show_sql">true</property>
 		<mapping class="com.revature.entity.EmployeeEntity" />
 		<mapping class="com.revature.entity.EmployeeLoginEntity" />
+		<mapping class="com.revature.entity.EmployeeReimbursementEntity" />
 		
 		
 		

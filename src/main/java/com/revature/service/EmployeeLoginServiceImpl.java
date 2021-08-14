@@ -19,4 +19,15 @@ public class EmployeeLoginServiceImpl implements EmployeeLoginService {
 		 eList=employeeLoginDao.validateEmployeeLogin();
 		 return eList;
 	 }
+	 
+	
+	 public void updateForgotPassword(String email, String passWord) {
+		 employeeLoginDao.updateForgotPassword(email,passWord);
+		 
+	 }
+	 public String getEmployeeType(String email) {
+		 return  employeeLoginDao.getEmployeeType(email);
+	 }
+	 
+	 
 }

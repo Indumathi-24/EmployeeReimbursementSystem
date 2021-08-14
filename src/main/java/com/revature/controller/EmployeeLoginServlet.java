@@ -31,19 +31,11 @@ public class EmployeeLoginServlet extends HttpServlet {
 		eLogin.setEmail(email);
 		eLogin.setPassword(password);
 		eLogin.setConfirmPswrd(cPassword);
-		
-	
+		EmployeeLoginEntity loginEntity= new EmployeeLoginEntity();
 		EmployeeLoginService employeeLoginService =new EmployeeLoginServiceImpl();
-		
 		employeeLoginService.addEmployeeLogin(eLogin);
-		
-		out.println("<html>");
-		out.println("<body>");
-		out.println("<script> alert('Login Success')</script>");
-		out.println("</body>");
-		out.println("<html>");
-		
-		
+		System.out.println("Login Success");
+		response.sendRedirect("http://localhost:8080/EmployeeReimbursementSystem/LoginValidation.html");	
 		
 	}
 

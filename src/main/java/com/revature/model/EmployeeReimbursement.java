@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class EmployeeReimbursement {
       private Integer requestId;
-      private Date date;
+      private String date;
       private String type;
       private Integer amount;
       private String status;
@@ -21,10 +21,10 @@ public class EmployeeReimbursement {
 	public void setRequestId(Integer requestId) {
 		this.requestId = requestId;
 	}
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public String getType() {
@@ -47,7 +47,7 @@ public class EmployeeReimbursement {
 				+ amount + ", status=" + status + "]";
 	}
 	
-	public EmployeeReimbursement(Integer requestId, Date date, String type, Integer amount, String status) {
+	public EmployeeReimbursement(Integer requestId, String date, String type, Integer amount, String status) {
 		super();
 		this.requestId = requestId;
 		this.date = date;

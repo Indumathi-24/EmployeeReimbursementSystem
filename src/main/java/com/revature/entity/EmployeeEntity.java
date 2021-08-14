@@ -1,7 +1,11 @@
 package com.revature.entity;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -12,6 +16,8 @@ public class EmployeeEntity {
 	
 	@OneToOne(mappedBy="userName")
 	private EmployeeLoginEntity user;
+	@OneToMany(mappedBy="userEmail",fetch=FetchType.EAGER)
+	private Set<EmployeeReimbursementEntity> reimbursementRequests;
 	private String employeeName;
 	private String dob;
 	private String address;
@@ -21,6 +27,12 @@ public class EmployeeEntity {
 	private Integer age;
 	private String gender;
 	private String type;
+	public Set<EmployeeReimbursementEntity> getReimbursementRequests() {
+		return reimbursementRequests;
+	}
+	public void setReimbursementRequests(Set<EmployeeReimbursementEntity> reimbursementRequests) {
+		this.reimbursementRequests = reimbursementRequests;
+	}
 	public EmployeeLoginEntity getUser() {
 		return user;
 	}
