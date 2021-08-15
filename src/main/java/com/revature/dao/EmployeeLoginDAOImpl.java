@@ -54,18 +54,19 @@ public void updateForgotPassword(String email, String passWord) {
 	List<String> passWordList = new ArrayList<String>();
 	Session session = HibernateUtil.getSessionFactory().openSession();
 	try {
-		Query query = session.createQuery("select l.id from  EmployeeLoginEntity l where l.email=:userName");
+		Query query = session.createQuery("select id from  EmployeeLoginEntity  where email=:userName");
 		query.setParameter("userName", email);
 		idList = query.list();
 		int loginId = idList.get(0);
-		Query passWordQuery = session.createQuery("select l.passWord from EmployeeLoginEntity l where l.email=:userName");
+		Query passWordQuery = session.createQuery("select password from EmployeeLoginEntity  where email=:userName");
 		passWordQuery.setParameter("userName", email);
 		passWordList = passWordQuery.list();
 		String previousPassWord = passWordList.get(0);
-		if (passWord.equals(previousPassWord)) { 
+		if (!passWord.equals(previousPassWord)) { 
 			session.beginTransaction();
-			Query newPasswordQuery = session.createQuery("UPDATE EmployeeLoginEntity set passWord=:pwd" + " where id=:userId");
+			Query newPasswordQuery = session.createQuery("UPDATE EmployeeLoginEntity set password=:pwd,confirmPswrd=:cPwd" + " where id=:userId");
 			newPasswordQuery.setParameter("pwd", passWord);
+			newPasswordQuery.setParameter("cPwd",passWord);
 			newPasswordQuery.setParameter("userId", loginId);
 			int count =newPasswordQuery.executeUpdate();
 			System.out.println(count + " " + "Rows updated");

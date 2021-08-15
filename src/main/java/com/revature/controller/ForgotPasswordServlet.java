@@ -16,8 +16,8 @@ public class ForgotPasswordServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		String userName = request.getParameter("username");
-		String passWord = request.getParameter("password");
+		String userName = request.getParameter("email");
+		String passWord = request.getParameter("newPassword");
 		String confirmPassword = request.getParameter("confirmPassword");
 		System.out.println(userName + " " + passWord + " " + confirmPassword);
 		if (!passWord.equals(confirmPassword)) {
